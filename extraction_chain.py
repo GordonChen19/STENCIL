@@ -2,8 +2,8 @@
 from langchain.chains import TransformChain
 from langchain.output_parsers import OutputFixingParser, PydanticOutputParser
 from langchain.prompts import PromptTemplate
-from extraction_pipeline.gpt_api import chat_completion, vision_completion
-from extraction_pipeline.prompt_template import fix_prompt_template
+from gpt_api import chat_completion, vision_completion
+from prompt_template import fix_prompt_template
 
 def fix_chain_fun(inputs):
         fix_prompt = PromptTemplate.from_template(fix_prompt_template)
