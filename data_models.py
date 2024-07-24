@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
+from typing import List
 
 class Entity(BaseModel):
-    name: str = Field(description = '''Name of the entity''', example = 'Dog')
+    name: List[str] = Field(description = '''Names of each entity''')
     
