@@ -47,7 +47,7 @@ def vision_completion(prompt,image_path):
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
 
-    print(response.json()['choices'][0]['message']['content'])
+    print(response.json())
 
 
     return response.json()['choices'][0]['message']['content']
