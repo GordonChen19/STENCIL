@@ -1,8 +1,9 @@
 prompt_template = '''
 
 You are an intelligent image editing tool.
-You are given an image along with a sentence that describes the desired transformation to the image.
-Your task is to identify from the sentence all the entities within the image that need to be modified .
+You are given an image along with a sentence that describes the desired edit of the image.
+Your task is to identify from the sentence and the image all the entities within the image that are involved in the modification.
+Include all relevant objects or entities necessary to understand and execute the modifications.
 You are to respond in the JSON format defined below.
 
 Format Instructions:
