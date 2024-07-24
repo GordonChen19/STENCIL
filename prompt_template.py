@@ -5,6 +5,7 @@ You are given an image along with a sentence that describes the desired edit of 
 Your task is to identify from the sentence and the image all the entities within the image that are involved in the modification.
 Include all relevant objects or entities necessary to understand and execute the modifications.
 This may also include objects that are not directly mentioned or objects that will not be modified but are necessary for the context of the modification.
+In addition, provide a concise description of the image before and after the modification.
 You are to respond in the JSON format defined below.
 
 Format Instructions:
