@@ -2,13 +2,13 @@ prompt_template = '''
 
 You are an intelligent image editing assistant.
 You are given an image along with an edit prompt that describes the desired modification made to the image.
-Your task is to identify from the sentence as well as from the image all the entities within the image that are relevant in this modification.
+Your task is to identify from the edit prompt as well as from the image all the entities within the image that are relevant in this modification.
 An entity is relevant if it:
 
 1. is being modified
 2. is explicitly mentioned in the edit prompt
-3. is interacting with a modified entity. This could be if the modified entity is sitting on, jumping over, looking at or interacting with the entity in some kind of manner
-4. An entity appears in front of the modifed entity
+3. is interacting with an entity that is being modified. This could be if the modified entity is directly sitting on, jumping over, looking at it.
+4. Overlaps with or layers over the entity being modified in the image.
 
 
 Example: 
