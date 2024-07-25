@@ -6,7 +6,7 @@ Your task is to identify from the sentence as well as from the image all the ent
 Include all relevant objects or entities necessary to understand and execute the modifications, even if they are not directly mentioned in the sentence.
 Some objects or entities from the image may be necessary for the context of the modification even if they are not modified.  
 
-Example: I have an image of a horse on a grass field. The sentence is "The horse stands on two feet." The entities involved in the modification are the horse and the grass field. The grass field is necessary for the context of the modification since the horse is standing on it.
+Example: I have an image of a horse on a grass field. The sentence is "The horse stands on two feet." The entity that is involved in the modification is the horse. and the grass field. The grass field is necessary for the context of the modification since the horse is standing on it.
 
 In addition, provide a concise description of the image before and after the modification.
 You are to respond in the JSON format defined below.
