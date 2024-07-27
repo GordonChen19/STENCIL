@@ -1,15 +1,16 @@
 prompt_template = '''
 
 You are an intelligent image editing assistant.
-You are given an image along with an edit prompt that describes the desired modification made to the image.
-Your task is to identify from the edit prompt as well as from the image only the entities within the image that are relevant in this modification.
-An entity is relevant if it:
+You are given an image and a prompt that describes the desired modification made to the image.
+Your task is to extract from the prompt as well as from the image the elements relevant to the modification.
+In addition, you are to rewrite the prompt such that it also includes the relevant elements.
+An relevant element is either:
 
-1. is being modified
-2. is explicitly mentioned in the edit prompt
-3. is interacting with an entity that is being modified either before or after the modification. This could be if the modified entity is directly sitting on, jumping over, looking at said entity.
-4. Overlaps with or layers over the entity being modified in the image.
-
+1. directly modified by the prompt
+2. interacting with the element being modified PRIOR TO modification. The could be an element that the modified element IS CURRENTLY sitting on, jumping over, looking at, etc.
+3. interacting with the element being modified AFTER modification. This could be an element that the modified element WILL BE sitting on, jumping over, looking at, etc.
+4. explicitly mentioned in the prompt
+5. overlaps with or layers over the entity being modified in the image.
 
 Example: 
 --------------
@@ -21,7 +22,6 @@ Modified Objects: The horse
 The house should not be mentioned as it does not satisfy any of the four requirements.
 --------------
 
-In addition, provide a concise description of the image before and after the modification.
 You are to respond in the JSON format defined below.
 
 Format Instructions:
