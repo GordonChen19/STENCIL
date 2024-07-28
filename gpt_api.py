@@ -42,7 +42,8 @@ def vision_completion(prompt,image_path):
         ]
         }
     ],
-    "max_tokens": 300
+    "max_tokens": 300,
+    "temperature": 0.2
     }
 
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
@@ -53,7 +54,7 @@ def chat_completion(prompt, model="gpt-4"):
     messages = [{"role": "user", "content": prompt}]
     response = client.chat.completions.create(model=model,
     messages=messages,
-    temperature=0.8)
+    temperature=0.2)
     return response.choices[0].message.content
 
 

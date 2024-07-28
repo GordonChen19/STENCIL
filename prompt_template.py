@@ -2,7 +2,7 @@ prompt_template = '''
 
 You are an intelligent image editing assistant.
 You are given an image and a prompt that describes a desired modification made to the image.
-Your task is to extract from the prompt as well as from the image the elements that are modified.
+Your task is to extract from the prompt as well as from the image the entities that are modified.
 
 You are to respond in the JSON format defined below.
 
