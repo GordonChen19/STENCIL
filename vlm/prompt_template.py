@@ -1,8 +1,8 @@
 prompt_template = '''
 
 You are an intelligent image editing assistant.
-You are given an image and a prompt that describes a desired modification made to the image.
-Your task is to extract from the prompt as well as from the image the objects/people/elements that are modified.
+You are given an image of an object/person and a prompt that describes a desired image featuring the same object/person.
+Your task is to generate an augmented prompt that better describes the object/person in the image.
 
 You are to respond in the JSON format defined below.
 

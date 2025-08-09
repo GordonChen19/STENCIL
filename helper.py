@@ -2,7 +2,7 @@
 import numpy as np
 
 from PIL import Image
-from tqdm.notebook import tqdm
+
 
 import torch
 import torch.nn.functional as F

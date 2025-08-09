@@ -6,16 +6,16 @@ from tqdm import tqdm
 class BaseModel:
     def __init__(self, model_id="sd-legacy/stable-diffusion-v1-5"):
         self.model_id = model_id
-        self.pipe = None
 
-    def load_model(self):
-        self.pipe = StableDiffusionPipeline.from_pretrained(self.model_id, torch_dtype=torch.float32)
+        self.pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)
         self.pipe = self.pipe.to("cuda:0")
         self.pipe.scheduler = DDIMScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear", clip_sample=False, set_alpha_to_one=False)
         self.pipe.vae.requires_grad_(False)
         self.pipe.text_encoder.requires_grad_(False)
         self.pipe.vae.eval()
         self.pipe.text_encoder.eval()
+
+
 
     def fine_tune(self, emb, latent, latent_mask, iter=100, bsz=4):
 
