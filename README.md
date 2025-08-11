@@ -5,9 +5,6 @@
     <a href="https://gordonchen19.github.io/STENCIL.github.io/">
     <img src="https://img.shields.io/badge/Evaluation-Website-brightgreen?style=flat-square" alt="Evaluation Website">
     </a>
-    <a href="#">
-    <img src="https://img.shields.io/badge/👥_Visitors-16_/_599-blue?style=flat-square" alt="Visitors">
-    </a>
 </p>
 
 <h1 align="center">STENCIL: Subject-Driven Generation with Context Guidance</h1>
@@ -60,7 +57,20 @@ STENCIL/
 
 ## :hammer: Installation 
 
-Install: `pip install -r requirements.txt`
+1. Clone the repository
+
+```
+git clone https://github.com/GordonChen19/STENCIL.git
+cd STENCIL
+```
+
+2. Install the environment
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 ---
 
