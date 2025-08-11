@@ -1,10 +1,13 @@
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/cs.CV-Computer%20Vision-4b8bbe.svg" alt="cs.CV"></a>
-  <a href="#paper"><img src="https://img.shields.io/badge/Paper-Coming%20soon-informational.svg" alt="Paper"></a>
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/"><img src="https://img.shields.io/badge/Website-Project-ff69b4.svg" alt="Website"></a>
-  <a href="https://hits.seeyoufarm.com">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgordonchen19.github.io%2FSTENCIL.github.io&count_bg=%23007EC6&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false"/>
-  </a>
+    <a href="https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf">
+    <img src="https://img.shields.io/badge/cs.CV-Paper-red?style=flat-square" alt="cs.CV Paper">
+    </a>
+    <a href="https://gordonchen19.github.io/STENCIL.github.io/">
+    <img src="https://img.shields.io/badge/Evaluation-Website-brightgreen?style=flat-square" alt="Evaluation Website">
+    </a>
+    <a href="#">
+    <img src="https://img.shields.io/badge/👥_Visitors-16_/_599-blue?style=flat-square" alt="Visitors">
+    </a>
 </p>
 
 <h1 align="center">STENCIL: Subject-Driven Generation with Context Guidance</h1>
