@@ -1,6 +1,6 @@
 from diffusers import StableDiffusionPipeline, DDIMScheduler
 import torch
-from tqdm import tqdm
+
 
 
 class BaseModel:

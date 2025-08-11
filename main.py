@@ -1,8 +1,8 @@
-from models.base_model import BaseModel
-from models.support_model import SupportModel
+# from models.base_model import BaseModel
+# from models.support_model import SupportModel
 from vlm.extraction_chain import extraction_chain
-from vlm.data_models import Entity
-from vlm.prompt_template import prompt_template
+from vlm.data_models import AugmentedPrompt, Image
+from vlm.prompt_template import augmented_prompt_template, caption_template
 import os
 from PIL import Image
 
@@ -19,9 +19,23 @@ def main(prompt, image_filepath=None):
         reference_images.append(os.path.join(reference_folder, img_name))
 
     #Generate Augmented prompt
-    augmented_prompt = extraction_chain(prompt, Entity, prompt_template, reference_images[0])['augmented_prompt']
+    response = extraction_chain(prompt, AugmentedPrompt, augmented_prompt_template, reference_images[0])
 
-    
+    subject_name = response["subject_name"]
+    augmented_prompt = response["augmented_prompt"]
+
+    print(subject_name, augmented_prompt)
+
+    #Generate caption for every reference image
+
+    captioned_images = []
+    for i, ref_image in enumerate(reference_images):
+        caption = extraction_chain(subject_name, Image, caption_template, reference_images[i])['image_caption']
+        captioned_images.append([ref_image, caption])
+
+    print(captioned_images)
+
+    return
     #Instantiate the base model
     base_model = BaseModel()
 
