@@ -6,22 +6,25 @@ Recent text-to-image diffusion models can produce impressive visuals from textua
 
 The diagram below shows the STENCIL pipeline, combining a small fine-tuned model for subject fidelity with a large frozen model for rich contextual priors.
 
-![STENCIL Pipeline Diagram](static/Diagram.png)
+![STENCIL Pipeline Diagram](static/Diagram.pdf)
 
 ## Repository Structure
 
 STENCIL/
-├─ main.py
-├─ vlm/
-│  ├─ extraction_chain.py
-│  ├─ data_models.py           # defines AugmentedPrompt, Image schemas
-│  └─ prompt_template.py       # augmented_prompt_template, caption_template
-├─ references/                 # your reference images (png/jpg)
-├─ models/                     
-│  ├─ base_model.py
-│  └─ support_model.py
-├─ .env                        # environment variables 
-└─ requirements.txt
+├── main.py
+├── vlm/
+│   ├── extraction_chain.py
+│   ├── data_models.py            # AugmentedPrompt, Image schemas
+│   └── prompt_template.py        # augmented_prompt_template, caption_template
+├── models/
+│   ├── base_model.py
+│   └── support_model.py
+├── references/                   # your reference images (png/jpg)
+├── static/
+│   ├── Diagram.pdf
+│   └── Diagram.png               # for README embedding
+├── .env                          # environment variables (gitignored)
+└── requirements.txt
 
 ## Guide
 
