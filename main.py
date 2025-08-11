@@ -4,7 +4,7 @@ from vlm.extraction_chain import extraction_chain
 from vlm.data_models import AugmentedPrompt, Image
 from vlm.prompt_template import augmented_prompt_template, caption_template
 import os
-from PIL import Image
+# from PIL import Image
 
 
 
