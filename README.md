@@ -1,15 +1,17 @@
 <p align="center">
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf">
+  <!-- Paper badge -->
+  <a href="https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf" style="text-decoration:none">
     <img src="https://img.shields.io/badge/cs.CV-Paper-e74c3c?style=flat-square&logo=arxiv&logoColor=white" alt="cs.CV Paper">
   </a>
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/">
+  <!-- Evaluation Website badge -->
+  <a href="https://gordonchen19.github.io/STENCIL.github.io/" style="text-decoration:none">
     <img src="https://img.shields.io/badge/Evaluation-Website-27ae60?style=flat-square&logo=google-chrome&logoColor=white" alt="Evaluation Website">
   </a>
-  <a href="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgordonchen19.github.io%2FSTENCIL.github.io&count_bg=%23007EC6&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Visitors&edge_flat=false">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgordonchen19.github.io%2FSTENCIL.github.io&count_bg=%23007EC6&title_bg=%23555555&icon=github&icon_color=%23FFFFFF&title=Visitors&edge_flat=false" alt="Visitors">
+  <!-- Visitors badge -->
+  <a href="https://gordonchen19.github.io/STENCIL.github.io/" style="text-decoration:none">
+    <img src="https://img.shields.io/badge/Visitors-599-blue?style=flat-square&logo=github&logoColor=white" alt="Visitors">
   </a>
 </p>
-
 <h1 align="center">STENCIL: Subject-Driven Generation with Context Guidance</h1>
 
 <p align="center">
