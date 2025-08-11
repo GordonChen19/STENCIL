@@ -1,6 +1,6 @@
 [![Paper](https://img.shields.io/badge/cs.CV-Paper-b31b1b?logo=arxiv&logoColor=red)](https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf)
 [![Project Page](https://img.shields.io/badge/Evaluation-Website-green?logo=googlechrome&logoColor=green)](https://gordonchen19.github.io/STENCIL.github.io/)
-![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fgordonchen19%2FSTENCIL&label=Visitors&icon=people&color=%233d8bfd)
+![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgordonchen19.github.io%2FSTENCIL.github.io&label=Visitors&icon=people&color=%233d8bfd&show=total)
 
 <h1 align="center">STENCIL: Subject-Driven Generation with Context Guidance</h1>
 
