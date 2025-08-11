@@ -60,6 +60,6 @@ def main(prompt, image_filepath=None):
 
 
 if __name__ == "__main__":
-    image_filepath = None #For Image-2-Image
+    image_filepath = None #For Image-2-Image (None otherwise)
     prompt = "A backpack next to the Eiffel tower"
     main(prompt, image_filepath)
