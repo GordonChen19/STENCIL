@@ -10,6 +10,7 @@ The diagram below shows the STENCIL pipeline, combining a small fine-tuned model
 
 ## Repository Structure
 
+```
 STENCIL/
 ├── main.py
 ├── vlm/
@@ -25,6 +26,7 @@ STENCIL/
 │   └── Diagram.png               # for README embedding
 ├── .env                          # environment variables (gitignored)
 └── requirements.txt
+```
 
 ## Guide
 
@@ -36,7 +38,7 @@ Install: `pip install -r requirements.txt`
 
 Create a `.env` at the project root (same folder as `main.py`):
 
-OPENAI_API_KEY= "your api key"
+OPENAI_API_KEY="your api key"
 
 > No spaces around `=` and no quotes.
 
@@ -51,8 +53,6 @@ Put a few images into `STENCIL/references/`
 ---
 
 ## Run
-
-From the `STENCIL/` folder:
 
 ```bash
 python main.py
