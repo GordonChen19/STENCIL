@@ -6,7 +6,7 @@ Recent text-to-image diffusion models can produce impressive visuals from textua
 
 The diagram below shows the STENCIL pipeline, combining a small fine-tuned model for subject fidelity with a large frozen model for rich contextual priors.
 
-![STENCIL Pipeline Diagram](static/Diagram.pdf)
+![STENCIL Pipeline Diagram](static/Diagram.png)
 
 ## Repository Structure
 
