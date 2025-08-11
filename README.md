@@ -1,17 +1,7 @@
-<p align="center">
-  <!-- Paper badge -->
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf" style="text-decoration:none">
-    <img src="https://img.shields.io/badge/cs.CV-Paper-e74c3c?style=flat-square&logo=arxiv&logoColor=white" alt="cs.CV Paper">
-  </a>
-  <!-- Evaluation Website badge -->
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/" style="text-decoration:none">
-    <img src="https://img.shields.io/badge/Evaluation-Website-27ae60?style=flat-square&logo=google-chrome&logoColor=white" alt="Evaluation Website">
-  </a>
-  <!-- Visitors badge -->
-  <a href="https://gordonchen19.github.io/STENCIL.github.io/" style="text-decoration:none">
-    <img src="https://img.shields.io/badge/Visitors-599-blue?style=flat-square&logo=github&logoColor=white" alt="Visitors">
-  </a>
-</p>
+[![Paper](https://img.shields.io/badge/cs.CV-Paper-b31b1b?logo=arxiv&logoColor=red)](https://gordonchen19.github.io/STENCIL.github.io/static/pdfs/chen.pdf)
+[![Project Page](https://img.shields.io/badge/Evaluation-Website-green?logo=googlechrome&logoColor=green)](https://gordonchen19.github.io/STENCIL.github.io/)
+![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fgordonchen19%2FSTENCIL&label=Visitors&icon=people&color=%233d8bfd)
+
 <h1 align="center">STENCIL: Subject-Driven Generation with Context Guidance</h1>
 
 <p align="center">
