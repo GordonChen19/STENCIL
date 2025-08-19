@@ -128,7 +128,7 @@ class ControlledAttnProcessor:
 
         if attn.save_attn_map:
 
-            attention_map = attention_probs[:,:,self.pipe.target_token_idx]
+            attention_map = attention_probs[:,:,base_model.pipe.target_token_idx]
             query_length = attention_map.shape[1]
             spatial_resolution = int(query_length**0.5)
             attention_map = attention_map.view(attention_probs.shape[0],1,spatial_resolution, spatial_resolution)
@@ -141,10 +141,10 @@ class ControlledAttnProcessor:
                 attention_map, size=(target_resolution, target_resolution), mode="bilinear", align_corners=False
             )
 
-            if self.pipe.attention_maps is None:
-                self.pipe.attention_maps = attention_map_rescaled
+            if base_model.pipe.attention_maps is None:
+                base_model.pipe.attention_maps = attention_map_rescaled
             else:
-                self.pipe.attention_maps =  self.pipe.attention_maps + attention_map_rescaled
+                base_model.pipe.attention_maps =  base_model.pipe.attention_maps + attention_map_rescaled
 
 
         hidden_states = torch.bmm(attention_probs, value)
