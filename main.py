@@ -18,7 +18,7 @@ from null_text_inversion import NullInversion
 from helper import inference, prepare_img
 
 def main(prompt, image_filepath=None):
-
+    global base_model, support_model
     reference_folder = "references"
     output_folder = "output"
     os.makedirs(reference_folder, exist_ok = True)
