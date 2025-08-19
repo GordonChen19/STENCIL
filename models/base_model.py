@@ -21,6 +21,8 @@ class BaseModel:
 
     def fine_tune(self, emb, latent, latent_mask, iter=100, bsz=4):
 
+        bsz = min(bsz, latent.shape[0])
+
         #Only finetune the decoder
 
         self.pipe.unet.requires_grad_(True)
