@@ -57,6 +57,9 @@ def main(prompt, image_filepath=None):
     if image_filepath is None:
         image_filepath = support_model.generate_image(augmented_prompt, output_folder="output")
 
+    del pipe 
+    torch.cuda.empty_cache()
+
     ########Generate Cross-Attention Masks for each reference image##########
 
     subject_latents, subject_embeddings, latent_masks = prepare_img(pipe = base_model.pipe, 

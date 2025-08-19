@@ -22,7 +22,6 @@ class BaseModel:
 
     def fine_tune(self, emb, latent, latent_mask, iter=100, bsz=4):
 
-        bsz = min(bsz, latent.shape[0])
 
         #Only finetune the decoder
 
@@ -48,7 +47,10 @@ class BaseModel:
 
         for epoch, step in enumerate(pbar):
             with torch.no_grad():
-                batch_indices = torch.randperm(latent.shape[0])[:bsz]
+                if latent.shape[0] >= bsz:
+                    batch_indices = torch.randperm(latent.shape[0])[:bsz]
+                else:
+                    batch_indices = torch.randint(0, latent.shape[0], (bsz,))
                 latent_batch = latent[batch_indices]
                 latent_mask_batch = latent_mask[batch_indices]
                 emb_batch = emb[batch_indices]
