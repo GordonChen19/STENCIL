@@ -178,7 +178,7 @@ def save_cross_attention_map(pipe, save=True):
 #Instantiate the base model
 base_model = BaseModel()
 
-for name, module in base_model.unet.named_modules():
+for name, module in base_model.pipe.unet.named_modules():
     module_name = type(module).__name__
     if module_name == "Attention" and "attn2" in name:
         module.set_processor(ControlledAttnProcessor())

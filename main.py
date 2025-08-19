@@ -59,7 +59,7 @@ def main(prompt, image_filepath=None):
 
     ########Generate Cross-Attention Masks for each reference image##########
 
-    subject_latents, subject_embeddings, latent_masks = prepare_img(pipe = base_model, 
+    subject_latents, subject_embeddings, latent_masks = prepare_img(pipe = base_model.pipe, 
                                                                     captioned_images = captioned_images,
                                                                     target_token = subject_name,
                                                                     threshold=0.2, 
@@ -71,16 +71,16 @@ def main(prompt, image_filepath=None):
 
     ####################Perform Null-text Optimization#################
 
-    null_inversion = NullInversion(base_model)
+    null_inversion = NullInversion(base_model.pipe)
 
     (image_gt, image_enc), inverted_latent, uncond_embeddings = null_inversion.invert(image_filepath, prompt, offsets=(0,0,0,0), verbose=True)
 
-    negative_prompt_embeds = torch.cat(uncond_embeddings, dim=0).to(base_model.device)
+    negative_prompt_embeds = torch.cat(uncond_embeddings, dim=0).to(base_model.pipe.device)
 
         
     ####################Perform Inference############################
 
-    final_image = inference(pipe = base_model,
+    final_image = inference(pipe = base_model.pipe,
                             inverted_latent = inverted_latent,
                             prompt = prompt,
                             negative_prompt_embeds = negative_prompt_embeds,

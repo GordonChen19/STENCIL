@@ -2,3 +2,5 @@
 .env
 .DS_Store
 /dataset/*
+/models/__pycache__/*
+/vlm/__pycache__/*

@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from PIL import Image
 from diffusers import DDIMScheduler
 from typing import Union
+from tqdm import tqdm
 
 NUM_DDIM_STEPS = 50
 GUIDANCE_SCALE = 7.5
