@@ -2,6 +2,7 @@ from diffusers import StableDiffusionPipeline, DDIMScheduler
 import torch
 import torch.nn.functional as F
 from typing import Optional
+from tqdm import tqdm
 
 
 
@@ -43,7 +44,7 @@ class BaseModel:
 
         self.pipe.unet.train()
 
-        pbar = range(iter)
+        pbar = tqdm(range(iter))
 
         for epoch, step in enumerate(pbar):
             with torch.no_grad():
