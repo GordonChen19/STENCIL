@@ -183,4 +183,4 @@ for name, module in base_model.pipe.unet.named_modules():
     if module_name == "Attention" and "attn2" in name:
         module.set_processor(ControlledAttnProcessor())
 
-save_cross_attention_map(base_model)
+save_cross_attention_map(base_model.pipe)
