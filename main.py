@@ -67,7 +67,7 @@ def main(prompt, image_filepath=None):
 
     ########################Finetune Base Model######################
 
-    _ = base_model.finetune(subject_embeddings, subject_latents, latent_masks, iter=100, bsz=4)
+    _ = base_model.fine_tune(subject_embeddings, subject_latents, latent_masks, iter=100, bsz=4)
 
     ####################Perform Null-text Optimization#################
 
