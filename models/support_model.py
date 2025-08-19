@@ -1,6 +1,6 @@
 from diffusers import StableDiffusion3Pipeline
 import torch
-from time import datetime
+from datetime import datetime
 
 class SupportModel():
     def __init__(self, model_id="stabilityai/stable-diffusion-3-medium-diffusers"):
