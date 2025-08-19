@@ -1,11 +1,20 @@
 from diffusers import StableDiffusion3Pipeline
 import torch
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HF_Token = os.getenv("HUGGINGFACE_HUB_TOKEN")
+
 
 class SupportModel():
     def __init__(self, model_id="stabilityai/stable-diffusion-3-medium-diffusers"):
         self.model_id = model_id
-        self.pipe = StableDiffusion3Pipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+        self.pipe = StableDiffusion3Pipeline.from_pretrained(model_id,
+                                                             token= HF_Token,
+                                                             torch_dtype=torch.float16)
         self.pipe = self.pipe.to("cuda")
     
     def generate_image(self, prompt, output_folder = "output"):
