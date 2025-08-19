@@ -1,4 +1,5 @@
 from diffusers import StableDiffusion3Pipeline
+from huggingface_hub import login, whoami
 import torch
 from datetime import datetime
 import os
@@ -6,14 +7,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-HF_Token = os.getenv("HUGGINGFACE_HUB_TOKEN")
-
+HF_TOKEN= os.getenv("HUGGINGFACE_HUB_TOKEN")
+login(token=HF_TOKEN)
+print("HF user:", whoami().get("name"))
 
 class SupportModel():
     def __init__(self, model_id="stabilityai/stable-diffusion-3-medium-diffusers"):
         self.model_id = model_id
         self.pipe = StableDiffusion3Pipeline.from_pretrained(model_id,
-                                                             token= HF_Token,
+                                                             token= HF_TOKEN,
                                                              torch_dtype=torch.float16)
         self.pipe = self.pipe.to("cuda")
     
