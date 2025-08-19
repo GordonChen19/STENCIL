@@ -2,8 +2,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from PIL import Image
-
-from typing import Optional, Union
+from diffusers import DDIMScheduler
+from typing import Union
 
 NUM_DDIM_STEPS = 50
 GUIDANCE_SCALE = 7.5
@@ -89,7 +89,7 @@ class NullInversion:
                 latents = image
             else:
                 image = torch.from_numpy(image).float() / 127.5 - 1
-                image = image.permute(2, 0, 1).unsqueeze(0).to(pipe.device)
+                image = image.permute(2, 0, 1).unsqueeze(0).to(self.model.device)
                 latents = self.model.vae.encode(image)['latent_dist'].mean
                 latents = latents * 0.18215
         return latents
@@ -190,12 +190,3 @@ class NullInversion:
         self.model.scheduler.set_timesteps(NUM_DDIM_STEPS)
         self.prompt = None
         self.context = None
-
-null_inversion = NullInversion(pipe)
-
-def invert(image_path, prompt):
-
-    (image_gt, image_enc), inverted_latent, uncond_embeddings = null_inversion.invert(image_path, prompt, offsets=(0,0,0,0), verbose=True)
-
-    negative_prompt_embeds = torch.cat(uncond_embeddings, dim=0).to(pipe.device)
-    return (image_gt, image_enc), inverted_latent, negative_prompt_embeds

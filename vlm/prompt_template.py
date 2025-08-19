@@ -1,11 +1,13 @@
 augmented_prompt_template = '''
 
 You are an intelligent image editing assistant.
-You are given an image of an object/person and a prompt that describes a desired image featuring the same object/person.
+You are given an image of an object/person/subject and a prompt that describes a desired image featuring the same object/person/subject.
 
-Your task is to describe the subject ("subject_name") in the image in 1-2 words. Avoid using adjectives that describe colour in the subject_name.
 
-You are to also generate an augmented prompt that better describes the object/person in the image.
+You are tasked the following
+
+1. Describe the subject ("subject_name") in the image in a few words (1-3 words). Avoid using adjectives that describe colour in the subject_name.
+2. Generate an augmented prompt that better describes the object/person/subject in the image. This augmented prompt can feature a more detailed description of the subject.
 
 You are to respond in the JSON format defined below.
 
@@ -23,9 +25,9 @@ Desired Transformation:
 caption_template = '''
 
 You are an professional at captioning images.
-You are given an image along with a subject name.
-
-Your task is to generate a caption ("image_caption") for the image containing the subject_name.
+You are given an image along with a subject name (subject_name).
+Your task is to generate a caption ("image_caption") for the image containing the subject_name. 
+The caption however should not add visual details about the subject (colour, shape, attributes, etc.)
 
 You are to respond in the JSON format defined below.
 

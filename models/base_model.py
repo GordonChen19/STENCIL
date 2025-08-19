@@ -1,5 +1,7 @@
 from diffusers import StableDiffusionPipeline, DDIMScheduler
 import torch
+import torch.nn.functional as F
+from typing import Optional
 
 
 
@@ -39,7 +41,7 @@ class BaseModel:
 
         self.pipe.unet.train()
 
-        pbar = tqdm(range(iter))
+        pbar = range(iter)
 
         for epoch, step in enumerate(pbar):
             with torch.no_grad():
@@ -70,10 +72,7 @@ class BaseModel:
         return emb
 
 
-
-
-
-
+########################################################################
 
 from diffusers.models.attention_processor import Attention
 
@@ -125,19 +124,9 @@ class ControlledAttnProcessor:
 
         attention_probs = attn.get_attention_scores(query, key, attention_mask)
 
-        # if attn.save_last_attn_slice:
-        #     attn.last_attn_slice = attention_probs
-        #     attn.save_last_attn_slice = False
-
-        # if attn.use_last_attn_slice:
-        #     attention_probs = attn.last_attn_slice
-        #     # for source_idx, mapped_idx in enumerate(pipe.token_mapping):
-        #     #     attention_probs[:,:,mapped_idx] = attn.last_attn_slice[:, :, source_idx]
-        #     attn.use_last_attn_slice = False
-
         if attn.save_attn_map:
 
-            attention_map = attention_probs[:,:,pipe.target_token_idx]
+            attention_map = attention_probs[:,:,self.pipe.target_token_idx]
             query_length = attention_map.shape[1]
             spatial_resolution = int(query_length**0.5)
             attention_map = attention_map.view(attention_probs.shape[0],1,spatial_resolution, spatial_resolution)
@@ -150,10 +139,10 @@ class ControlledAttnProcessor:
                 attention_map, size=(target_resolution, target_resolution), mode="bilinear", align_corners=False
             )
 
-            if pipe.attention_maps is None:
-                pipe.attention_maps = attention_map_rescaled
+            if self.pipe.attention_maps is None:
+                self.pipe.attention_maps = attention_map_rescaled
             else:
-                pipe.attention_maps =  pipe.attention_maps + attention_map_rescaled
+                self.pipe.attention_maps =  self.pipe.attention_maps + attention_map_rescaled
 
 
         hidden_states = torch.bmm(attention_probs, value)
@@ -173,15 +162,9 @@ class ControlledAttnProcessor:
         hidden_states = hidden_states / attn.rescale_output_factor
 
         return hidden_states
-    
-for name, module in pipe.unet.named_modules():
-    module_name = type(module).__name__
-    if module_name == "Attention" and "attn2" in name:
-        module.set_processor(ControlledAttnProcessor())
 
 
-
-def save_cross_attention_map(save=True):
+def save_cross_attention_map(pipe, save=True):
     pipe.attention_maps = None
     for name, module in pipe.unet.named_modules():
         module_name = type(module).__name__
@@ -190,4 +173,12 @@ def save_cross_attention_map(save=True):
         else:
             module.save_attn_map = False
 
-save_cross_attention_map()
+#Instantiate the base model
+base_model = BaseModel()
+
+for name, module in base_model.unet.named_modules():
+    module_name = type(module).__name__
+    if module_name == "Attention" and "attn2" in name:
+        module.set_processor(ControlledAttnProcessor())
+
+save_cross_attention_map(base_model)

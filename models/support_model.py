@@ -22,3 +22,6 @@ class SupportModel():
         image.save(image_path)
         return image_path
 
+
+#Instantiate the support model
+support_model = SupportModel()
