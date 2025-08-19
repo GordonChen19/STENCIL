@@ -2,6 +2,7 @@ import torch
 import torch.nn.functional as F
 from torchvision import transforms
 from models.base_model import save_cross_attention_map
+from PIL import Image
 
 @torch.no_grad()
 def get_image(pipe, prompt=None, emb=None, guidance_scale=7.5, negative_prompt_embeds = None, num_inference_steps=50, num_images=1):
@@ -97,7 +98,7 @@ def prepare_img(pipe, captioned_images, target_token, threshold=None, steps=100)
 
     for (file_name, image_caption) in captioned_images:
 
-        image_latent, _ = encode_img(pipe, file_name)
+        image_latent, _ = encode_img(pipe, Image.open(file_name).convert("RGB"))
 
         subject_latents.append(image_latent)
 
