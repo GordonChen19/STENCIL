@@ -7,7 +7,7 @@ You are given an image of an object/person/subject and a prompt that describes a
 You are tasked the following
 
 1. Describe the subject ("subject_name") in the image in a few words (1-3 words). Avoid using adjectives that describe colour in the subject_name.
-2. Generate an augmented prompt that better describes the object/person/subject in the image. This augmented prompt can feature a more detailed description of the subject.
+2. Generate an augmented prompt that better describes the object/person/subject in the image. This augmented prompt can feature a more detailed description of the subject, mentioning colour, shape and another attributes.
 
 You are to respond in the JSON format defined below.
 
